@@ -46,13 +46,15 @@ class Haet_TemplateDesigner {
 
 	public function rest_api_init() {
 		register_rest_route( $this->api_base, '/themesettings', array(
-            'methods' => 'GET',
-            'callback' => [ $this, 'getThemeSettings' ]
+            		'methods' => 'GET',
+            		'callback' => [ $this, 'getThemeSettings' ],
+			'permission_callback' => '__return_true'	
 		));
 		
 		register_rest_route( $this->api_base, '/themesettings', array(
-            'methods' => 'POST',
-            'callback' => [ $this, 'saveThemeSettings' ]
+            		'methods' => 'POST',
+            		'callback' => [ $this, 'saveThemeSettings' ],
+			'permission_callback' => '__return_true'
 		));
 	}
 
